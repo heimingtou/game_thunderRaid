@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: 5d8e5706718b25e499d4c7326ecf9daf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: img_bullet_laser_03_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 726
+        width: 122
+        height: 298
+      alignment: 9
+      pivot: {x: 0.5449811, y: 0.05190139}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b02efc51847b1545aa89dec3ceaa36e
+      internalID: 628644451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 728
+        width: 119
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5153715, y: 0.061233107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b57623b39e268b45aa6e946619f5134
+      internalID: 1381850241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_2
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 728
+        width: 107
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5683825, y: 0.042693887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9526f2512494d44b434992f6800450
+      internalID: -2071979007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_3
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 728
+        width: 106
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5517702, y: 0.055053297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097aa80a760cba646a7c0e2df095e5b1
+      internalID: -1136519546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 434
+        width: 97
+        height: 290
+      alignment: 9
+      pivot: {x: 0.55657405, y: 0.052155383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f93da41526a274f90fd3818571b487
+      internalID: -1355367198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_5
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 435
+        width: 98
+        height: 291
+      alignment: 9
+      pivot: {x: 0.5, y: 0.041121755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d34b2a93f54e144908c750123fb693
+      internalID: -1678867500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 142
+        width: 84
+        height: 290
+      alignment: 9
+      pivot: {x: 0.5217767, y: 0.026924396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0b610709ff5554fbc46125832fc8f5
+      internalID: -488586225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_bullet_laser_03_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 141
+        width: 83
+        height: 291
+      alignment: 9
+      pivot: {x: 0.5220388, y: -0.0091659175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a205f769c84dfe94f8460437305a784e
+      internalID: 218302726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      img_bullet_laser_03_0: 628644451
+      img_bullet_laser_03_1: 1381850241
+      img_bullet_laser_03_2: -2071979007
+      img_bullet_laser_03_3: -1136519546
+      img_bullet_laser_03_4: -1355367198
+      img_bullet_laser_03_5: -1678867500
+      img_bullet_laser_03_6: -488586225
+      img_bullet_laser_03_7: 218302726
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
