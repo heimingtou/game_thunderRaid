@@ -38,11 +38,11 @@ public class lazerBullet : MonoBehaviour
             enemy.takeDamage(Damage);
             //Debug.Log("Distane" + distance);
             distance = hit.distance/originalLength ;
-            Debug.Log("After distancce " + distance);
+            //Debug.Log("After distancce " + distance);
             //Debug.Log(hit.collider.name + " / scale before: " + transform.localScale.y);
             float dt= (enemy.transform.position.y- transform.position.y)/originalLength;
-            Debug.Log("scale after: " + transform.localScale.y);
-            Debug.Log("khoang cach den boss" + dt);
+            //Debug.Log("scale after: " + transform.localScale.y);
+            //Debug.Log("khoang cach den boss" + dt);
         }
         else
         {

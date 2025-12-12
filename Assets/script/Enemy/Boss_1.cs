@@ -6,7 +6,7 @@ using UnityEngine;
 public class Boss_1 : Enemy
 {
     // Start is called before the first frame update
-    public override void fly()
+    public override void FlyToPosition(Vector3 endPos)
     {
         if(transform.position.y>2.8f)
         {

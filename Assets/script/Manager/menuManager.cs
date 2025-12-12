@@ -34,14 +34,14 @@ public class menuManager : MonoBehaviour
     }
     public void onPlay()
     {
-        Debug.Log("day la ham onplay ");
+        //Debug.Log("day la ham onplay ");
         string userName = usernameInput.text; // lấy text từ Input Field
         if (string.IsNullOrEmpty(userName))
         {
             Debug.Log("Vui lòng nhập Username!");
             return;
         }
-        Debug.Log(userName);
+       // Debug.Log(userName);
         // Lưu tạm vào PlayerPrefs để dùng trong scene khác
         PlayerPrefs.SetString("Username", userName);
     }

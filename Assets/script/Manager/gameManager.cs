@@ -14,7 +14,8 @@ public class gameManager : MonoBehaviour
     public GameObject gif;
     public GameObject gif2;
     public GameObject gif3;
-    
+    public LevelSpawnData postionSpawn;
+    public int spawnId=0;
     public bool isSpawBoss = false;
     //public int score=0;
     //public int Coin = 0;
@@ -24,10 +25,11 @@ public class gameManager : MonoBehaviour
     //float distance;
     bool allDead=false;
     bool isSpaw = true;// co danh dau da tao
-    int countEnemy = 20;
-    float level = 4;
+    int countEnemy = 0;
+    float level = 0;
     GameObject Enemy;
-    float[] EndPos = { -2f, -0.8f, 0.4f, 1.3f, 2.2f };
+    List<Vector3> listEndPos;
+    //float[] EndPos = { -2f, -0.8f, 0.4f, 1.3f, 2.2f };
     private List<GameObject> enemies = new List<GameObject>();
     Vector3 Pos;
     //int count = 0;
@@ -39,10 +41,12 @@ public class gameManager : MonoBehaviour
     }
     void Start()
     {
+        listEndPos= new List<Vector3>();
         //distance =0.5f;
         //SpEnemy();// ham tao ra enemy
         Pos = spawnPos;
-       
+        spawnId = UnityEngine.Random.Range(0, 100) % 7;
+        listEndPos = postionSpawn.GetListPosition(spawnId);
 
     }
 
@@ -72,19 +76,21 @@ public class gameManager : MonoBehaviour
         countEnemy = 0;
         Pos.x = spawnPos.x + 3;
         Pos.y = spawnPos.y;
+        spawnId = UnityEngine.Random.Range(0, 100) % 7;
+        listEndPos= postionSpawn.GetListPosition(spawnId);
     }
     // kiem tra co sinh tiep khong
     public void checkSpawEnemy()
     {
-        if (countEnemy == 20)
+        if (countEnemy == (listEndPos.Count-1))
         {
             isSpaw = false;
         }
 
         if (isSpaw)
         {
-
-            spawEnemyrandom();
+           // Debug.Log("spawn Enemy");
+            spawEnemyrandom(listEndPos[countEnemy]);
             countEnemy++;
         }
         if (countEnemy % 5 == 0)
@@ -131,11 +137,12 @@ public class gameManager : MonoBehaviour
     //    score++;
     //    PlayerPrefs.SetInt(userData.Poin_Key,score);
     //}
-    void spawEnemy(GameObject enemyprefab, Vector3 SpawnPos)
+    void spawEnemy(GameObject enemyprefab, Vector3 SpawnPos, Vector3 EndPos)
     {
         // lay huong bay
         bool directionFly = false;
         // gan huong bay 
+        //Debug.Log("da chay spawEnemy");
         if ((UnityEngine.Random.Range(0, 30) % 2) == 1)
         {
             SpawnPos.x = -1 * SpawnPos.x;
@@ -144,24 +151,26 @@ public class gameManager : MonoBehaviour
         Enemy = Instantiate(enemyprefab, SpawnPos, Quaternion.identity);
             Enemy enemyScript = Enemy.GetComponent<Enemy>();   // lay script Enemy cua enemy moi tao
             enemyScript.flyRight = directionFly;
-        enemyScript.endPos = EndPos[countEnemy % 5];
+        enemyScript.FlyToPosition(EndPos);
             enemies.Add(Enemy);
     }
     // ham sinh ra enemy
-    void spawEnemyrandom()
-    {  
+    void spawEnemyrandom(Vector3 EndPos)
+    {
+       // Debug.Log("da chay spawEnemyRandom");
         float check = UnityEngine.Random.Range(0, 50) % 4;
         if (check == 1)
-            spawEnemy(enemyPrefab3, Pos);
+            spawEnemy(enemyPrefab3, Pos,EndPos);
         else if (check == 0)
-            spawEnemy(enemyPrefab2, Pos);
+            spawEnemy(enemyPrefab2, Pos, EndPos );
         else
-            spawEnemy(enemyPrefab, Pos);
+            spawEnemy(enemyPrefab, Pos, EndPos);
     }
     void spawBoss()
     {
         Vector3 PosBoss = new Vector3(0, 5, 0);
-        spawEnemy(bossPrefab, PosBoss);
+        Vector3 EndPos = new Vector3(0, 3, 0);
+        spawEnemy(bossPrefab, PosBoss, EndPos);
         isSpawBoss = false;
     }
     public void endGame()

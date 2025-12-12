@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,8 +9,12 @@ public class showScore : MonoBehaviour
     public TMP_Text textScore;
     int lastScore;
     // Start is called before the first frame update
-    public 
-    void Start()
+    private void OnDisable()
+    {
+        // Lệnh này giết chết TOÀN BỘ Tween đang dính trên người con Enemy này
+        transform.DOKill();
+    }
+    public void Start()
     {
         lastScore = saveManger.instance.Score;
         textScore.text = lastScore.ToString();

@@ -1,3 +1,4 @@
+﻿using DG.Tweening;
 using JetBrains.Annotations;
 using System;
 using System.Collections;
@@ -10,7 +11,7 @@ public class Enemy : MonoBehaviour
     public GameObject blood;// thanh mau
     protected float scaleHp; // do dai thanh mau
     public float speed;// toc do bay
-    public float endPos; // vi tri dung bay
+    //public Vector3 endPos; // vi tri dung bay
     protected bool isFly = true;
     public GameObject explosion;
     //protected float x;
@@ -28,12 +29,16 @@ public class Enemy : MonoBehaviour
         basePlayerBullet basePlayer=other.gameObject.GetComponent<basePlayerBullet>();
         if (basePlayer != null)
         {
-            Debug.Log("va cham enemy");
+            //Debug.Log("va cham enemy");
             takeDamage(basePlayer.Damage);
             other.gameObject.SetActive(false);
         }
     }
-
+    private void OnDisable()
+    {
+        // Lệnh này giết chết TOÀN BỘ Tween đang dính trên người con Enemy này
+        transform.DOKill();
+    }
     // Start is called before the first frame update
     virtual public void Awake()
     {
@@ -47,10 +52,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (isFly)
-        {
-            fly();
-        }
+        
         if (!startshoot)
         { return; }
             shoot();
@@ -61,25 +63,27 @@ public class Enemy : MonoBehaviour
         shootTime = UnityEngine.Random.Range(1f, 10f) * 2f;
         //Invoke("shoot2", shootTime);
     }
-    public virtual void fly() // enemy bay vao khung hinh
+    public virtual void FlyToPosition(Vector3 endPos)
     {
-        if(flyRight)
-       { transform.position += new Vector3(1 *speed * Time.deltaTime, 0, 0);
-            if (transform.position.x > endPos)
+        // 1. Tính toán thời gian bay dựa trên tốc độ và khoảng cách
+        // Công thức: Thời gian = Quãng đường / Vận tốc
+        float distance = Vector3.Distance(transform.position, endPos);
+        float duration = (distance / speed)+2f;
+
+        // Nếu bạn muốn bay nhanh cố định (ví dụ 1 giây là tới) thì set duration = 1f;
+
+        // 2. Thực hiện bay bằng DOTween
+        transform.DOMove(endPos, duration)
+            .SetEase(Ease.OutQuad).SetLink(gameObject) // Hiệu ứng: Bay nhanh lúc đầu, chậm dần khi tới nơi (trông tự nhiên hơn Linear)
+            .OnComplete(() =>
             {
+                // 3. Đoạn code này sẽ chạy SAU KHI bay xong
                 isFly = false;
                 startshoot = true;
-            }
-        }
-        else
-        {
-            transform.position += new Vector3(-1 * speed * Time.deltaTime, 0, 0);
-            if (transform.position.x < endPos)
-            {
-                isFly = false;
-                startshoot = true;
-            }
-        }
+
+                // Nếu muốn code gọn hơn nữa, bạn có thể gọi hàm bắn tại đây
+                // StartShooting(); 
+            });
     }
     virtual public void shoot()
     {

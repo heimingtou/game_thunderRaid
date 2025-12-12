@@ -30,10 +30,14 @@ public class GameControl : MonoBehaviour
     public GameObject goPos;
 
     // Start is called before the first frame update
-   
+    private void OnDisable()
+    {
+        // Lệnh này giết chết TOÀN BỘ Tween đang dính trên người con Enemy này
+        transform.DOKill();
+    }
     void Start()
     {
-        transform.DOMove(goPos.transform.position, 2f).SetEase(Ease.OutBack);
+        transform.DOMove(goPos.transform.position, 2f).SetLink(gameObject).SetEase(Ease.OutBack);
         //Debug.Log("tien len");
         Invoke("EnableShooting", 2f);// goi EnableShooting sau 1 giay ke tu khi bat dau
         Application.targetFrameRate = 60; // dat FPS
@@ -63,20 +67,20 @@ public class GameControl : MonoBehaviour
            { shootlazer();
             
             //Debug.Log(isLazer);
-            Invoke("stopLazer", 50f);
+            Invoke("stopLazer", 10f);
         }
     }
     void stopLazer()
     {
         bulletManger.instance.isLazer = false;
-        Debug.Log("huy lazer");
+       // Debug.Log("huy lazer");
         Destroy(lazer);
         //bulletlazer.SetActive(false);
     }
     
     private void shootlazer()
     {
-        Debug.Log("banLazer");
+       // Debug.Log("banLazer");
         //bulletlazer.SetActive(true);
         Vector3 gunPos = new Vector3(gun.transform.position.x, gun.transform.position.y, gun.transform.position.z);
         lazer = Instantiate(bulletlazer, gunPos, gun.transform.rotation);

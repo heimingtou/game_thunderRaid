@@ -21,7 +21,7 @@ public class saveManger : MonoBehaviour
         if (PlayerPrefs.HasKey(userData.Poin_Key))
         {
             string jsonData = PlayerPrefs.GetString(userData.Poin_Key);
-            Debug.Log("jsonData: " + jsonData);
+            //Debug.Log("jsonData: " + jsonData);
             //FromJson: chuyển từ string sang object
             //ToJson: chuyển từ object sang string
             userSavePointDatas = JsonUtility.FromJson<UserSaveDatas>(jsonData);
@@ -30,7 +30,7 @@ public class saveManger : MonoBehaviour
         else
         {
             userSavePointDatas = new UserSaveDatas();
-            Debug.Log("new user");
+            //Debug.Log("new user");
         }
         userName = PlayerPrefs.GetString("Username");
         string planeName = PlayerPrefs.GetString(userData.planeName_key);

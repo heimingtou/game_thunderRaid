@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (bullet != null)
         {
             Instantiate(explore, bullet.transform.position, Quaternion.identity);
-            Debug.Log("destroy");
+            //Debug.Log("destroy");
             Destroy(bullet.gameObject);
         }
     }
