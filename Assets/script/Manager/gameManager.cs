@@ -25,7 +25,7 @@ public class gameManager : MonoBehaviour
     bool allDead=false;
     bool isSpaw = true;// co danh dau da tao
     int countEnemy = 20;
-    float level = 0;
+    float level = 4;
     GameObject Enemy;
     float[] EndPos = { -2f, -0.8f, 0.4f, 1.3f, 2.2f };
     private List<GameObject> enemies = new List<GameObject>();
@@ -111,7 +111,7 @@ public class gameManager : MonoBehaviour
     public  void spawGif(Vector3 spawGifs)
     {
         float check = UnityEngine.Random.Range(0, 6) % 5;
-        Debug.Log(check);
+        //Debug.Log(check);
         if (check == 1)
         {
             Instantiate(gif2, spawGifs, Quaternion.identity);
@@ -122,7 +122,7 @@ public class gameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("roi tien");
+            //Debug.Log("roi tien");
             Instantiate(gif3, spawGifs, Quaternion.identity);
         }
     }

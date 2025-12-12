@@ -6,7 +6,7 @@ public class bulletManger : MonoBehaviour
 {
     public int countGun = 1;
     public static bulletManger instance; // gameManager la toan cuc co the goi o bat ky dau bat ki script nao
-    public bool isLazer=false;
+    public bool isLazer=true ;
 
     private void Awake()
     {

@@ -29,17 +29,20 @@ public class lazerBullet : MonoBehaviour
     void changeDistance()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up,maxDistance,layerMask);
-        distance = maxDistance;
+        distance = maxDistance/originalLength;
+       
+       // Debug.DrawRay(transform.position, transform.up * maxDistance, Color.red);
         if (hit)
         {
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             enemy.takeDamage(Damage);
             //Debug.Log("Distane" + distance);
             distance = hit.distance/originalLength ;
-           // Debug.Log("After distancce " + distance);
+            Debug.Log("After distancce " + distance);
             //Debug.Log(hit.collider.name + " / scale before: " + transform.localScale.y);
-           
-            //Debug.Log("scale after: " + transform.localScale.y);
+            float dt= (enemy.transform.position.y- transform.position.y)/originalLength;
+            Debug.Log("scale after: " + transform.localScale.y);
+            Debug.Log("khoang cach den boss" + dt);
         }
         else
         {

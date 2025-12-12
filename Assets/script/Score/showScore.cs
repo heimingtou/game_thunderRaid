@@ -15,7 +15,7 @@ public class showScore : MonoBehaviour
         lastScore = saveManger.instance.Score;
         textScore.text = lastScore.ToString();
         transform.DORotate(new Vector3(0, 360, 360), 2f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
-        Debug.Log("Dotween dang hoat dong");
+        //Debug.Log("Dotween dang hoat dong");
     }
 
     // Update is called once per frame

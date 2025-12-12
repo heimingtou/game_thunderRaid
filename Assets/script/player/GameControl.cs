@@ -34,7 +34,7 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         transform.DOMove(goPos.transform.position, 2f).SetEase(Ease.OutBack);
-        Debug.Log("tien len");
+        //Debug.Log("tien len");
         Invoke("EnableShooting", 2f);// goi EnableShooting sau 1 giay ke tu khi bat dau
         Application.targetFrameRate = 60; // dat FPS
         //bulletlazer.transform.localScale = new Vector3(0, 0, 1);
@@ -57,14 +57,13 @@ public class GameControl : MonoBehaviour
         Move(viewPos);
         if (! bulletManger.instance.isLazer)
         { shoot();
-            Debug.Log("isBullet");
+            //Debug.Log("isBullet");
         }
         else if (lazer==null)
            { shootlazer();
-            if (lazer == null)
-                Debug.Log("da huy lazer");
+            
             //Debug.Log(isLazer);
-            Invoke("stopLazer", 10f);
+            Invoke("stopLazer", 50f);
         }
     }
     void stopLazer()

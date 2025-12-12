@@ -42,7 +42,7 @@ public class loadPlayer : MonoBehaviour
         Shield.transform.localPosition = Vector3.zero;
         Shield.SetActive(false);
        
-        Debug.Log("spaw player");
+       // Debug.Log("spaw player");
     }
     
 
