@@ -9,4 +9,5 @@ public class userData : MonoBehaviour
     public static string IndexCharacter_Key = "indexCharacter";
     public static string planeName_key = "planeName";
     public static string Coin_Key = "collectCoin";
+   //public static string[] bulletName = new string[] { "bulletPlayer1", "bulletPlayer2", "bulletPlayer3", "bulletPlayer4", "bulletPlayer5", "bulletPlayer6", "bulletPlayer7" };
 }

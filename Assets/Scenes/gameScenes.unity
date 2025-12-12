@@ -2373,6 +2373,7 @@ GameObject:
   - component: {fileID: 946068853}
   - component: {fileID: 946068855}
   - component: {fileID: 946068856}
+  - component: {fileID: 946068857}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -2480,6 +2481,40 @@ MonoBehaviour:
   characterDb: {fileID: 11400000, guid: 6954aa98e3d2f6d4ab83b819939e6d77, type: 2}
   Pos: {fileID: 992821698}
   indexCharacterSelected: 0
+--- !u!114 &946068857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946068849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802fadabf2cec2149bf60abdc4647f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject:
+  - name: bulletPlayer1
+    prefabBullet: {fileID: 1034066576086089476, guid: a7bedc731ac23074280ff2bca55d7928, type: 3}
+    amount: 20
+  - name: bulletPlayer2
+    prefabBullet: {fileID: 1034066576086089476, guid: e33accc007fa07c4ab579f7f282a4b3e, type: 3}
+    amount: 20
+  - name: bulletPlayer3
+    prefabBullet: {fileID: 1034066576086089476, guid: 303637fc8dc99c84a98b00d64fcf7d21, type: 3}
+    amount: 20
+  - name: bulletPlayer4
+    prefabBullet: {fileID: 1034066576086089476, guid: a1b0f3c70770c3e4c8f4658499282375, type: 3}
+    amount: 20
+  - name: bulletPlayer5
+    prefabBullet: {fileID: 1034066576086089476, guid: 3950c45bc313217469648f053afd9c4b, type: 3}
+    amount: 20
+  - name: bulletPlayer6
+    prefabBullet: {fileID: 1034066576086089476, guid: 9030725c424db8f43b1dce4d7479b838, type: 3}
+    amount: 20
+  - name: bulletPlayer7
+    prefabBullet: {fileID: 1707377555632388371, guid: 420c456944a82a144870de69ef749735, type: 3}
+    amount: 20
 --- !u!1 &992821698
 GameObject:
   m_ObjectHideFlags: 0

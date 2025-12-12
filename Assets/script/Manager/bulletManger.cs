@@ -13,16 +13,7 @@ public class bulletManger : MonoBehaviour
         instance = this; // gan object gameManger vao instance
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     public void AddBullet()
     {
         countGun++;

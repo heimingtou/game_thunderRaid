@@ -14,9 +14,10 @@ public class GameControl : MonoBehaviour
 { 
     //Vector3 spawnPosStart = new Vector3(-3.5f, 3.5f, 0f);
     bool canShoot = false;// chua cho phep ban
-    float timer = 0;
+    public float timer = 0;
     public GameObject gun;
-    public GameObject bulletprefab;
+   // public GameObject bulletprefab;
+    public string bulletName;
     public GameObject bulletlazer;
     GameObject lazer;
     //bool isLazer=false;
@@ -56,10 +57,12 @@ public class GameControl : MonoBehaviour
         Move(viewPos);
         if (! bulletManger.instance.isLazer)
         { shoot();
-           // Debug.Log(isLazer);
+            Debug.Log("isBullet");
         }
         else if (lazer==null)
            { shootlazer();
+            if (lazer == null)
+                Debug.Log("da huy lazer");
             //Debug.Log(isLazer);
             Invoke("stopLazer", 10f);
         }
@@ -82,7 +85,14 @@ public class GameControl : MonoBehaviour
         // isshoot = false;
         //isLazer = false;
     }
-    private void shoot()
+    public void spawBullet(string name, Quaternion rotate,Vector3 Position)
+    {
+        GameObject prefab = poolManager.instance.GetBullet(name);
+        prefab.SetActive(true);
+        prefab.transform.position=Position;
+        prefab.transform.rotation=rotate;
+    }
+    public virtual void shoot()
     {
         float Angel = Mathf.Atan2(bulletManger.instance.countGun/2, 11f) * Mathf.Rad2Deg;// goc ban
         timer += Time.deltaTime;
@@ -98,7 +108,7 @@ public class GameControl : MonoBehaviour
                 Angel *= 2;
                 for (int i = 0; i < bulletManger.instance.countGun; i++)
                 {
-                    Instantiate(bulletprefab, posShoot, directionOfShoot);
+                    spawBullet(bulletName, directionOfShoot,posShoot);
                     directionOfShoot = Quaternion.Euler(0f, 0f, directionOfShoot.eulerAngles.z + (Angel/(bulletManger.instance.countGun)));
                 }
             }
@@ -107,7 +117,7 @@ public class GameControl : MonoBehaviour
                 int n = bulletManger.instance.countGun;
                 if (bulletManger.instance.countGun % 2!=0)
                 {
-                    Instantiate(bulletprefab, posShoot, directionOfShoot);
+                    spawBullet(bulletName, directionOfShoot,posShoot);
                     n--;
                 }
                 for (int i = 0; i < n; i++)
@@ -120,7 +130,7 @@ public class GameControl : MonoBehaviour
                         else
                             posShoot.x = gun.transform.position.x - ((i) / 8f);
                     }
-                    Instantiate(bulletprefab, posShoot, directionOfShoot);
+                    spawBullet(bulletName, directionOfShoot, posShoot);
                 }
             }
             timer = 0;

@@ -131,8 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e899acb4a3ab5e049998e233ce377df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   gun: {fileID: 1285358640904290100}
   bulletprefab: {fileID: 1034066576086089476, guid: a1b0f3c70770c3e4c8f4658499282375, type: 3}
+  bulletName: bulletPlayer4
   bulletlazer: {fileID: 9125260545997516726, guid: 5d36ff7227efedd4d92935ec3904108e, type: 3}
   Speed: 5
   x: 1

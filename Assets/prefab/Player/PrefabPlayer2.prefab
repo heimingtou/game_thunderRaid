@@ -131,8 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a82c0e89395474ea2ab8d4f30808a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   gun: {fileID: 5403587682942804421}
   bulletprefab: {fileID: 1707377555632388371, guid: 420c456944a82a144870de69ef749735, type: 3}
+  bulletName: bulletPlayer7
   bulletlazer: {fileID: 9125260545997516726, guid: 5d36ff7227efedd4d92935ec3904108e, type: 3}
   Speed: 5
   x: 1
@@ -203,7 +205,7 @@ BoxCollider2D:
   m_Offset: {x: -0.07061058, y: 0.27589512}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.45106813, y: 0.707662}
     oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5

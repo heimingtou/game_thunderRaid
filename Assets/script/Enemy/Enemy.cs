@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("va cham enemy");
             takeDamage(basePlayer.Damage);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 

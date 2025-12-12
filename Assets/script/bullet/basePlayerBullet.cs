@@ -26,6 +26,6 @@ public class basePlayerBullet : MonoBehaviour
     public virtual void Destroyer(Vector3 viewPos)
     {
         if (viewPos.y > 1 || viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
     }
 }

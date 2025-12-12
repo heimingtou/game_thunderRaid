@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.UI.Image;
 
-public class lazerBullet : basePlayerBullet
+public class lazerBullet : MonoBehaviour
 {
     public float distance;
+    public int Damage;
     public float maxDistance=10f;
     int layerMask;
     float originalLength;
