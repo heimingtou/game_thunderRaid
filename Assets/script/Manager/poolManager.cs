@@ -15,7 +15,7 @@ public class poolManager : MonoBehaviour
         public int amount;
     }
     public List<PoolItem> pooledObject;
-    public Dictionary<string, List<GameObject>> PoolObjectDict;
+    public Dictionary<string, Stack<GameObject>> PoolObjectDict;
     public Dictionary<string, GameObject> prefabPoolObject;
     public static poolManager instance;
     private void Awake()
@@ -24,16 +24,17 @@ public class poolManager : MonoBehaviour
     }
     void Start()
     {
-        PoolObjectDict = new Dictionary<string, List<GameObject>>();
+        PoolObjectDict = new Dictionary<string, Stack<GameObject>>();
         prefabPoolObject=new Dictionary<string, GameObject>();
         foreach (PoolItem item in pooledObject)
         {
-            List<GameObject> list = new List<GameObject>();
+            Stack<GameObject> list = new Stack<GameObject>();
             for(int i=0;i<item.amount;i++)
             {
                 GameObject obj = Instantiate(item.prefabBullet);
                 obj.SetActive(false);
-                list.Add(obj);
+              
+                list.Push(obj);
             }
             PoolObjectDict.Add(item.name, list);
             prefabPoolObject.Add(item.name, item.prefabBullet);
@@ -41,10 +42,10 @@ public class poolManager : MonoBehaviour
     }
     public GameObject addBullletToPool(string name)
     {
-        List<GameObject> addPool = PoolObjectDict[name];
+        Stack<GameObject> addPool = PoolObjectDict[name];
         GameObject obj = Instantiate(prefabPoolObject[name]);
         obj.SetActive(false);
-        addPool.Add(obj);
+        addPool.Push(obj);
         return obj;
     }
     public GameObject GetBullet(string name)
@@ -52,13 +53,18 @@ public class poolManager : MonoBehaviour
         // kiem tra co ton tai bullet name truyen vao hay khong 
         if(PoolObjectDict.ContainsKey(name))
         {
-            List<GameObject>bulletOfShoot= PoolObjectDict[name];
+            Stack<GameObject>bulletOfShoot= PoolObjectDict[name];
             for(int i=0;i<bulletOfShoot.Count;i++)
             {
                 // tim vien dan chua duoc ban va tra no ve
-                if(!bulletOfShoot[i].activeInHierarchy)
+                if(bulletOfShoot.Count>0)
                 {
-                    return bulletOfShoot[i];
+                    GameObject bullet = bulletOfShoot.Pop();
+                    return bullet;
+                }
+                else
+                {
+                    addBullletToPool(name);
                 }
             }
            return addBullletToPool(name);

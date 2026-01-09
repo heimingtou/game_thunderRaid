@@ -76,17 +76,17 @@ public class playGameManager : MonoBehaviour
     public void showShield()
     {
         StartCoroutine(ActivateShield());
-        Debug.Log("bat dau");
+       // Debug.Log("bat dau");
     }
     IEnumerator ActivateShield()
     {
-        Debug.Log("bat khien");
+       // Debug.Log("bat khien");
         button_shield.SetActive(false);
         Shield.SetActive(true);
         yield return new WaitForSeconds(active);
         Shield.SetActive(false);
         yield return new WaitForSeconds(coolDown);
-        Debug.Log("co the bat khien");
+       // Debug.Log("co the bat khien");
         button_shield.SetActive(true);
     }
 }
